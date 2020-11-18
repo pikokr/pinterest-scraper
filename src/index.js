@@ -1,4 +1,8 @@
-(async () => {
+#!/usr/bin/env node
+
+const commander = require('commander')
+
+/*(async () => {
     const fetch = require('node-fetch')
     const fs = require('fs')
     const puppeteer = require('puppeteer')
@@ -86,4 +90,4 @@
         bar.stop()
     }
 
-})()
+})()*/

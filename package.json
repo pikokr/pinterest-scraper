@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/pikokr/pinterest-scraper#readme",
   "dependencies": {
+    "chalk": "^4.1.0",
     "cheerio": "^1.0.0-rc.3",
     "cli-progress": "^3.8.2",
+    "commander": "^6.2.0",
     "node-fetch": "^2.6.1",
     "puppeteer": "^5.5.0",
     "uuid": "^8.3.1"
@@ -27,5 +29,8 @@
   "devDependencies": {
     "@types/cheerio": "^0.22.22",
     "@types/node-fetch": "^2.5.7"
+  },
+  "bin": {
+    "pinterest-download": "src/index.js"
   }
 }
