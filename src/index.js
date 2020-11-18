@@ -1,29 +1,53 @@
 (async () => {
-    const fetch = require('node-fetch')
+    //const fetch = require('node-fetch')
     const fs = require('fs')
-    const uuid = require('uuid').v4
-    const progress = require('cli-progress')
+    const puppeteer = require('puppeteer')
+    //const uuid = require('uuid').v4
+    //const progress = require('cli-progress')
 
     if (!fs.existsSync('./images')) {
         fs.mkdirSync('./images')
     }
 
-    const url = 'https://www.pinterest.co.kr/Tinaaa_1709/kafuu-chino/'
+    const width = 400
+    const height = 900
 
+    const options = {
+        headless: false,
+        slowMo: true,
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            `--window-size=${width},${height}`,
+        ]
+    }
+
+    const browser = await puppeteer.launch(options)
+
+    const page = (await browser.pages())[0] || await browser.newPage()
+
+    console.log(page)
+
+    const url = 'https://www.pinterest.co.kr/Tinaaa_1709/kafuu-chino/'
     /**
      * @type {string}
      */
-    const res = await fetch(url).then(res=>res.text())
+    //const res = await fetch(url).then(res => res.text())
+
+
+    //console.log(Array.from(dom.window.document.querySelectorAll('img').values()).map(i => i.getAttribute('src')))
+
+    /*
 
     const cheerio = require('cheerio')
 
     const $ = cheerio.load(res)
 
-    const bar = new progress.SingleBar({}, progress.Presets.shades_classic)
+    /*const bar = new progress.SingleBar({}, progress.Presets.shades_classic)
 
     /**
      * @type {string[]}
-     */
+     *
     const urls = $('img[src]').toArray().map(r=>r.attribs.src)
 
     bar.start(urls.length, 0)
@@ -46,5 +70,5 @@
         }))
     }))
 
-    bar.stop()
+    bar.stop()*/
 })()
