@@ -24,11 +24,48 @@
 
     const browser = await puppeteer.launch(options)
 
-    const page = (await browser.pages())[0] || await browser.newPage()
+    const page = await browser.newPage()
 
-    console.log(page)
+    const pageDown = async () => {
+        const scrollHeight = 'document.body.scrollHeight';
+        let previousHeight = await page.evaluate(scrollHeight);
+        await page.evaluate(`window.scrollTo(0, ${scrollHeight})`);
+        await page.waitForFunction(`${scrollHeight} > ${previousHeight}`, {
+            timeout: 30000
+        })
+    }
 
-    const url = 'https://www.pinterest.co.kr/Tinaaa_1709/kafuu-chino/'
+    const url = 'https://www.pinterest.co.kr/detols57/%EC%B9%98%EB%85%B8/'
+
+    await page.goto(url)
+
+    const getPages = () => page.evaluate(() => document.querySelectorAll('[data-test-id=pinGrid] img').length)
+
+    let prev = await getPages()
+
+    let i = 0
+
+    while (true) {
+        await pageDown()
+        const pages = await getPages()
+
+        console.log(prev)
+
+        console.log(pages)
+
+        if (prev === pages) {
+            break
+        }
+
+        prev = pages
+
+        console.log(`Loop #${i++}`)
+    }
+
+    await Promise.all((await browser.pages()).map(r=>r.close()))
+
+    process.exit()
+
     /**
      * @type {string}
      */
