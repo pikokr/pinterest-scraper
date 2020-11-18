@@ -18,9 +18,13 @@
   },
   "homepage": "https://github.com/pikokr/pinterest-scraper#readme",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.3"
+    "cheerio": "^1.0.0-rc.3",
+    "cli-progress": "^3.8.2",
+    "node-fetch": "^2.6.1",
+    "uuid": "^8.3.1"
   },
   "devDependencies": {
-    "@types/cheerio": "^0.22.22"
+    "@types/cheerio": "^0.22.22",
+    "@types/node-fetch": "^2.5.7"
   }
 }
