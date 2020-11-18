@@ -1,0 +1,20 @@
+{
+  "name": "pinterest-scraper",
+  "version": "1.0.0",
+  "description": "파랑이가 치노 사진 긁어오려고 만드는 핀터레스트 스크레이퍼입니다",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pikokr/pinterest-scraper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pikokr/pinterest-scraper/issues"
+  },
+  "homepage": "https://github.com/pikokr/pinterest-scraper#readme"
+}
