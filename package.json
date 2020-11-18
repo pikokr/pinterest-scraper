@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/pikokr/pinterest-scraper/issues"
   },
-  "homepage": "https://github.com/pikokr/pinterest-scraper#readme"
+  "homepage": "https://github.com/pikokr/pinterest-scraper#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.22.22"
+  }
 }
